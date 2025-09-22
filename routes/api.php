@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\GaraponController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/ping', function () {
     return response()->json(['message' => 'pong']);
+});
+
+Route::group(['middleware' => 'api_auth', 'prefix' => 'checkin'], function () {
+    Route::post('garapon/spin', [GaraponController::class, 'spin']);
 });
