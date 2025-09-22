@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GaraponReward extends Model
+class TblGaraponReward extends Model
 {
-    protected $table      = 'garapon_reward';
+    protected $table = 'tbl_garapon_reward';
     protected $primaryKey = 'reward_id';
-    public    $timestamps = false;
+    public $timestamps = false;
 
     protected $fillable = [
         'reward_type_id',
@@ -16,7 +16,6 @@ class GaraponReward extends Model
         'reward_image_url',
         'created_date',
         'created_user_id',
-        'updated_date',
         'updated_user_id',
     ];
 
@@ -32,11 +31,11 @@ class GaraponReward extends Model
 
     public function settings()
     {
-        return $this->hasMany(GaraponRewardSetting::class, 'reward_id', 'reward_id');
+        return $this->hasMany(TblGaraponSetting::class, 'reward_id', 'reward_id');
     }
 
     public function spinHistories()
     {
-        return $this->hasMany(GaraponSpinHistory::class, 'spin_reward_id', 'reward_id');
+        return $this->hasMany(TblSpinsHistory::class, 'spin_reward_id', 'reward_id');
     }
 }

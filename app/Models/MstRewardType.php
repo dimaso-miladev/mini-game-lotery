@@ -8,9 +8,9 @@ class MstRewardType extends Model
 {
     protected $table = 'mst_reward_type';
     protected $primaryKey = 'reward_type_id';
-    public $incrementing = false;         
+    public $incrementing = false;
     protected $keyType = 'int';
-    public $timestamps = false;           
+    public $timestamps = false;
 
     protected $fillable = [
         'reward_type_id',
@@ -19,7 +19,6 @@ class MstRewardType extends Model
         'reward_description',
         'created_date',
         'created_user_id',
-        'updated_date',
         'updated_user_id',
     ];
 
